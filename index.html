@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abeer Younes | Professional Automations & Web Solutions</title>
+    <meta name="description" content="Discover cutting-edge automation solutions and digital workflows designed to scale your business efficiently with Abeer Younes.">
+    <meta property="og:title" content="Abeer Younes | Automations & Digital Solutions">
+    <meta property="og:description" content="Streamline your workflow with high-performance automations and custom web pages.">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d4af37'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+
+    <!-- Google Fonts: Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- CSS Styles -->
+    <style>
+        /* ==========================================
+           CSS VARIABLES & DESIGN SYSTEM (Silver & Gold)
+           ========================================== */
+        :root {
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --accent-gold: #c5a059;
+            --accent-gold-hover: #b08d46;
+            --accent-silver: #e2e8f0;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 20px 25px -5px rgba(197, 160, 89, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius: 12px;
+        }
+
+        .dark {
+            --bg-primary: #0b0f19;
+            --bg-secondary: #111827;
+            --bg-card: #1f2937;
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --accent-gold: #d4af37;
+            --accent-gold-hover: #e5c158;
+            --accent-silver: #374151;
+            --border-color: #374151;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 20px 25px -5px rgba(212, 175, 55, 0.15);
+        }
+
+        /* ==========================================
+           RESET & GLOBAL STYLES
+           ========================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        ul { list-style: none; }
+        a { text-decoration: none; color: inherit; }
+        button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.85rem 2rem;
+            border-radius: var(--radius);
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), #b08d46);
+            color: #0b0f19;
+        }
+
+        .dark .btn-primary {
+            color: #0b0f19;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            filter: brightness(1.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent-gold);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-gold);
+            color: #0b0f19;
+            transform: translateY(-3px);
+        }
+
+        /* Fade Up Animation Class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+
+        /* ==========================================
+           1. NAVBAR
+           ========================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(var(--bg-secondary-rgb, 11, 15, 25), 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-gold);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .icon-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background-color: var(--text-primary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* ==========================================
+           2. HERO SECTION
+           ========================================== */
+        .hero {
+            padding: 12rem 0 8rem 0;
+            background: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 20% 80%, rgba(11, 15, 25, 0.2) 0%, transparent 50%);
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 span {
+            background: linear-gradient(135deg, var(--accent-gold), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-card-svg {
+            width: 100%;
+            max-width: 480px;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* ==========================================
+           3. ABOUT SECTION & STATS
+           ========================================== */
+        .about {
+            background-color: var(--bg-secondary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* ==========================================
+           4. SERVICES SECTION
+           ========================================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-gold);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius);
+            background-color: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* ==========================================
+           5. WHY US SECTION
+           ========================================== */
+        .why-us {
+            background-color: var(--bg-secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .feature-icon-wrap {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--accent-gold);
+            color: #0b0f19;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.25rem;
+        }
+
+        .feature-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .feature-text p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================
+           6. PORTFOLIO SECTION
+           ========================================== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-card {
+            background-color: var(--bg-card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-gold);
+        }
+
+        .portfolio-preview {
+            height: 200px;
+            background: linear-gradient(135deg, #1f2937, #111827);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-preview svg {
+            width: 80%;
+            height: 80%;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .portfolio-card:hover .portfolio-preview svg {
+            transform: scale(1.05);
+        }
+
+        .portfolio-info {
+            padding: 2rem;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            margin-bottom: 0.75rem;
+        }
+
+        .portfolio-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .portfolio-info p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-link {
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .portfolio-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* ==========================================
+           7. TESTIMONIALS SECTION
+           ========================================== */
+        .testimonials {
+            background-color: var(--bg-secondary);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .testimonial-stars {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-card p {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .client-info h4 {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .client-info span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ==========================================
+           8. FAQ SECTION (Accordion)
+           ========================================== */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-align: right;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+            color: var(--accent-gold);
+            font-size: 1.25rem;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 1.25rem;
+        }
+
+        /* ==========================================
+           9. CONTACT SECTION
+           ========================================== */
+        .contact {
+            background-color: var(--bg-secondary);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+        }
+
+        .contact-info-box h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-box p {
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius);
+            background-color: rgba(212, 175, 55, 0.1);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text span {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-text strong {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background-color: #25d366;
+            color: #ffffff;
+            padding: 0.85rem 1.75rem;
+            border-radius: var(--radius);
+            font-weight: 700;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #20ba5a;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-form {
+            background-color: var(--bg-card);
+            padding: 3rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            display: none;
+        }
+
+        .form-message.success {
+            background-color: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            display: block;
+        }
+
+        /* ==========================================
+           10. FOOTER
+           ========================================== */
+        footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 0 2rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            max-width: 350px;
+        }
+
+        .footer-links h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-right: 5px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--accent-gold);
+            color: #0b0f19;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.1);
+        }
+
+        /* ==========================================
+           RESPONSIVE DESIGN
+           ========================================== */
+        @media (max-width: 992px) {
+            .hero-grid, .about-grid, .contact-grid, .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--bg-secondary);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: var(--transition);
+                border-left: 1px solid var(--border-color);
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+       1. NAVIGATION BAR
+       ========================================== -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--accent-gold)"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                Abeer<span>Younes</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#about" data-translate="nav_about">من نحن</a>
+                <a href="#services" data-translate="nav_services">الخدمات</a>
+                <a href="#why-us" data-translate="nav_why">لماذا تختارنا</a>
+                <a href="#portfolio" data-translate="nav_portfolio">أعمالنا</a>
+                <a href="#testimonials" data-translate="nav_testimonials">آراء العملاء</a>
+                <a href="#faq" data-translate="nav_faq">الأسئلة الشائعة</a>
+                <a href="#contact" data-translate="nav_contact">تواصل معنا</a>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Theme Toggle -->
+                <button class="icon-btn" id="theme-toggle" aria-label="تبديل وضع الألوان">
+                    <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <!-- Language Toggle -->
+                <button class="icon-btn" id="lang-toggle" aria-label="تبديل اللغة">AR</button>
+                
+                <a href="#contact" class="btn btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.9rem;" data-translate="btn_start">ابدأ الآن</a>
+                
+                <div class="hamburger" id="hamburger" aria-label="القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==========================================
+           2. HERO SECTION
+           ========================================== -->
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+                <div class="hero-content reveal">
+                    <span class="portfolio-tag" data-translate="hero_tag">أنظمة أتمتة وحلول ذكية</span>
+                    <h1 data-translate="hero_title">ارتقِ بعملك مع أحدث <span>أنظمة الأتمتة</span> والويب</h1>
+                    <p data-translate="hero_desc">useful url</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary" data-translate="hero_btn1">ابدأ مشروعك</a>
+                        <a href="#services" class="btn btn-outline" data-translate="hero_btn2">استكشف الخدمات</a>
+                    </div>
+                </div>
+                <div class="hero-visual reveal">
+                    <!-- SVG Hero Graphic -->
+                    <svg class="hero-card-svg" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="500" height="400" rx="24" fill="var(--bg-card)" stroke="var(--border-color)" stroke-width="2"/>
+                        <circle cx="250" cy="200" r="120" stroke="var(--accent-gold)" stroke-width="2" stroke-dasharray="8 8" opacity="0.4"/>
+                        <circle cx="250" cy="200" r="80" fill="rgba(212, 175, 55, 0.1)" stroke="var(--accent-gold)" stroke-width="2"/>
+                        <path d="M200 200L230 230L310 150" stroke="var(--accent-gold)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="50" y="50" width="100" height="30" rx="8" fill="var(--border-color)"/>
+                        <rect x="350" y="320" width="100" height="30" rx="8" fill="var(--border-color)"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+           3. ABOUT SECTION & STATS
+           ========================================== -->
+        <section class="about" id="about">
+            <div class="container about-grid">
+                <div class="about-text reveal">
+                    <span class="portfolio-tag" data-translate="about_tag">من نحن</span>
+                    <h3 data-translate="about_title">نحول الأفكار المعقدة إلى أنظمة رقمية سلسة وفعالة</h3>
+                    <p data-translate="about_desc1">نحن نقدم حلول أتمتة متطورة وتطوير ويب احترافي مصمم خصيصاً لمساعدة الشركات والأفراد على توفير الوقت وزيادة الإنتاجية عبر تذليل العقبات التقنية.</p>
+                    <p data-translate="about_desc2">نسعى دائماً لتقديم جودة استثنائية تجمع بين جمال التصميم وسرعة الأداء لتلبية تطلعاتك وتحقيق أهدافك الرقمية.</p>
+                    <a href="#contact" class="btn btn-primary" data-translate="about_btn">تواصل معنا اليوم</a>
+                </div>
+                <div class="stats-grid reveal">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="150">0</div>
+                        <div class="stat-label" data-translate="stat_1">مشروع ناجح</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="98">0</div>
+                        <div class="stat-label" data-translate="stat_2">رضا العملاء %</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="5">0</div>
+                        <div class="stat-label" data-translate="stat_3">سنوات خبرة</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="24">0</div>
+                        <div class="stat-label" data-translate="stat_4">دعم فني ساعة</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+           4. SERVICES SECTION
+           ========================================== -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="portfolio-tag" data-translate="services_tag">خدماتنا المتميزة</span>
+                    <h2 data-translate="services_title">ماذا نقدم لك؟</h2>
+                    <p data-translate="services_desc">حلول متكاملة مصممة خصيصاً لرفع كفاءة عملك الرقمي</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                        </div>
+                        <h3 data-translate="serv1_title">تصميم صفحات الويب</h3>
+                        <p data-translate="serv1_desc">تطوير صفحات هبوط سريعة، متجاوبة، وعالية التحويل تعكس هوية مشروعك بكل احترافية.</p>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        </div>
+                        <h3 data-translate="serv2_title">برمجة سكريبتات الأتمتة</h3>
+                        <p data-translate="serv2_desc">ربط التطبيقات والأنظمة ببعضها البعض لإنشاء سير عمل آلي يقلل الجهد البشري ويضاعف الإنتاجية.</p>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <h3 data-translate="serv3_title">تحسين وتحليل البيانات</h3>
+                        <p data-translate="serv3_desc">تنظيم وتحليل البيانات وهيكلتها بطرق ذكية تتيح لك اتخاذ قرارات دقيقة ومبنية على أرقام حقيقية.</p>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h3 data-translate="serv4_title">استشارات الأمان الرقمي</h3>
+                        <p data-translate="serv4_desc">تقييم البنية التحتية وتطبيق معايير الحماية لضمان أمان بياناتك وخدماتك الرقمية على الإنترنت.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+           5. WHY US SECTION
+           ========================================== -->
+        <section class="why-us" id="why-us">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="portfolio-tag" data-translate="why_tag">لماذا تختارنا</span>
+                    <h2 data-translate="why_title">المميزات التي تجعلنا الخيار الأفضل</h2>
+                    <p data-translate="why_desc">نلتزم بمعايير الجودة والاحترافية لضمان تفوقك المستمر</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-item reveal">
+                        <div class="feature-icon-wrap">01</div>
+                        <div class="feature-text">
+                            <h4 data-translate="feat1_title">سرعة فائقة وأداء عالي</h4>
+                            <p data-translate="feat1_desc">نستخدم تقنيات حديثة خفيفة الوزن تضمن تحميل المواقع والأنظمة في أجزاء من الثانية.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item reveal">
+                        <div class="feature-icon-wrap">02</div>
+                        <div class="feature-text">
+                            <h4 data-translate="feat2_title">حلول مخصصة تناسب احتياجك</h4>
+                            <p data-translate="feat2_desc">لا توجد حلول معلبة؛ نصمم كل نظام ليناسب متطلبات عملك بدقة متناهية.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item reveal">
+                        <div class="feature-icon-wrap">03</div>
+                        <div class="feature-text">
+                            <h4 data-translate="feat3_title">دعم فني مستمر</h4>
+                            <p data-translate="feat3_desc">فريق دعم متواجد دائماً لمساعدتك وضمان استمرارية عمل أنظمتك بلا توقف.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item reveal">
+                        <div class="feature-icon-wrap">04</div>
+                        <div class="feature-text">
+                            <h4 data-translate="feat4_title">أسعار تنافسية وقيمة عالية</h4>
+                            <p data-translate="feat4_desc">نقدم خدمات احترافية بأسعار مدروسة تضمن لك أعلى عائد على الاستثمار.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+           6. PORTFOLIO SECTION
+           ========================================== -->
+        <section class="portfolio" id="portfolio">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="portfolio-tag" data-translate="portfolio_tag">معرض الأعمال</span>
+                    <h2 data-translate="portfolio_title">أحدث مشاريعنا المنجزة</h2>
+                    <p data-translate="portfolio_desc">نماذج حية من الحلول الرقمية وصفحات الويب التي طورناها</p>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-card reveal">
+                        <div class="portfolio-preview">
+                            <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="200" height="120" rx="8" fill="#111827"/>
+                                <rect x="20" y="20" width="160" height="15" rx="4" fill="#374151"/>
+                                <rect x="20" y="45" width="90" height="10" rx="3" fill="var(--accent-gold)"/>
+                                <rect x="20" y="65" width="130" height="35" rx="6" fill="#1f2937"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-tag" data-translate="port1_tag">أتمتة العمليات</span>
+                            <h3 data-translate="port1_title">نظام أتمتة المبيعات والطلبات</h3>
+                            <p data-translate="port1_desc">ربط منصات التجارة الإلكترونية بنظام داخلي لتحديث المخزون وإرسال الفواتير تلقائياً.</p>
+                            <a href="#contact" class="portfolio-link" data-translate="port_link">اكتشف التفاصيل &larr;</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-card reveal">
+                        <div class="portfolio-preview">
+                            <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="200" height="120" rx="8" fill="#111827"/>
+                                <circle cx="60" cy="60" r="30" fill="rgba(212,175,55,0.2)" stroke="var(--accent-gold)" stroke-width="2"/>
+                                <rect x="110" y="40" width="70" height="12" rx="3" fill="#374151"/>
+                                <rect x="110" y="60" width="50" height="10" rx="3" fill="#374151"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-tag" data-translate="port2_tag">تطوير الويب</span>
+                            <h3 data-translate="port2_title">منصة عرض أعمال رقمية</h3>
+                            <p data-translate="port2_desc">صفحة هبوط تفاعلية ومتجاوبة بالكامل تعرض الخدمات والمنتجات مع نظام تحميل مباشر.</p>
+                            <a href="#contact" class="portfolio-link" data-translate="port_link">اكتشف التفاصيل &larr;</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-card reveal">
+                        <div class="portfolio-preview">
+                            <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="200" height="120" rx="8" fill="#111827"/>
+                                <rect x="20" y="20" width="50" height="80" rx="4" fill="#374151"/>
+                                <rect x="80" y="20" width="100" height="35" rx="4" fill="#1f2937"/>
+                                <rect x="80" y="65" width="100" height="35" rx="4" fill="#1f2937"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-tag" data-translate="port3_tag">تحليل البيانات</span>
+                            <h3 data-translate="port3_title">لوحة تحكم ذكية للشركات</h3>
+                            <p data-translate="port3_desc">تحويل البيانات الخام إلى رسوم بيانية وتنبيهات فورية تساعد في اتخاذ القرارات الإدارية.</p>
+                            <a href="#contact" class="portfolio-link" data-translate="port_link">اكتشف التفاصيل &larr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+           7. TESTIMONIALS SECTION
+           ========================================== -->
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="portfolio-tag" data-translate="test_tag">آراء العملاء</span>
+                    <h2 data-translate="test_title">ماذا يقول عملاؤنا عنا؟</h2>
+                    <p data-translate="test_desc">شهادات حقيقية تعكس مستوى الجودة والاحترافية التي نقدمها</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card reveal">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p data-translate="test1_text">"خدمة احترافية جداً واهتمام بأدق التفاصيل. أنظمة الأتمتة التي تم بناؤها وفرت علينا ساعات طويلة من العمل اليدوي."</p>
+                        <div class="client-info">
+                            <h4 data-translate="test1_name">أحمد المالك</h4>
+                            <span data-translate="test1_role">مدير شركة تجارية</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p data-translate="test2_text">"التصميم كان رائعاً وعصرياً تماماً كما طلبت. السرعة والاحترافية في التعامل تدعو للإعجاب المستمر."</p>
+                        <div class="client-info">
+                            <h4 data-translate="test2_name">سارة الخطيب</h4>
+                            <span data-translate="test2_role">مصممة ومستقلة</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p data-translate="test3_text">"أنصح بشدة بالتعامل مع Abeer Younes. الدعم الفني استثنائي والحلول المقدمة مبتكرة وعملية للغاية."</p>
+                        <div class="client-info">
+                            <h4 data-translate="test3_name">خالد العمري</h4>
+                            <span data-translate="test3_role">رائد أعمال</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+           8. FAQ SECTION
+           ========================================== -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="portfolio-tag" data-translate="faq_tag">الأسئلة الشائعة</span>
+                    <h2 data-translate="faq_title">إجابات على أبرز استفساراتك</h2>
+                    <p data-translate="faq_desc">كل ما تحتاج لمعرفته حول خدماتنا وآلية العمل</p>
+                </div>
+                <div class="faq-container reveal">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span data-translate="faq1_q">كم تستغرق عملية إنجاز المشروع؟</span>
+                            <span class="faq-icon">&#9662;</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p data-translate="faq1_a">تختلف المدة حسب حجم المشروع وتعقيده، ولكن عادة ما تستغرق صفحات الهبوط من 3 إلى 5 أيام، بينما مشاريع الأتمتة المتقدمة تتطلب من أسبوع إلى أسبوعين.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span data-translate="faq2_q">كيف يتم التواصل ومتابعة العمل؟</span>
+                            <span class="faq-icon">&#9662;</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p data-translate="faq2_a">نعتمد قنوات اتصال مرنة تشمل البريد الإلكتروني (abiryns26@gmail.com)، الهاتف، أو محادثات واتساب لضمان التنسيق المستمر وإطلاعك على خطوات العمل أولاً بأول.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span data-translate="faq3_q">هل تقدمون دعماً فنياً بعد تسليم المشروع؟</span>
+                            <span class="faq-icon">&#9662;</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p data-translate="faq3_a">نعم، نقدم فترة دعم فني مجاني بعد التسليم لضمان عمل كافة الأنظمة والصفحات بأعلى كفاءة، مع توفر باقات صيانة ودعم مستمر عند الطلب.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span data-translate="faq4_q">ما هي تكلفة الخدمات؟</span>
+                            <span class="faq-icon">&#9662;</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p data-translate="faq4_a">الأسعار مرنة وتعتمد على متطلباتك الخاصة واحتياجات مشروعك. يمكنك التواصل معنا عبر نموذج الاتصال أو واتساب للحصول على عرض سعر مخصص ودقيق.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+           9. CONTACT SECTION
+           ========================================== -->
+        <section class="contact" id="contact">
+            <div class="container contact-grid">
+                <div class="contact-info-box reveal">
+                    <span class="portfolio-tag" data-translate="contact_tag">تواصل معنا</span>
+                    <h3 data-translate="contact_title">دعنا نناقش مشروعك القادم</h3>
+                    <p data-translate="contact_desc">نحن هنا للإجابة على كافة استفساراتك وتحويل أفكارك إلى واقع رقمي ملموس.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">&#9993;</div>
+                            <div class="contact-text">
+                                <span data-translate="contact_email_label">البريد الإلكتروني</span>
+                                <strong>abiryns26@gmail.com</strong>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">&#9743;</div>
+                            <div class="contact-text">
+                                <span data-translate="contact_phone_label">رقم الهاتف</span>
+                                <strong dir="ltr">0991601723</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/963991601723" target="_blank" class="whatsapp-btn">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        <span data-translate="whatsapp_btn">تواصل عبر واتساب</span>
+                    </a>
+                </div>
+
+                <div class="contact-form reveal">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" data-translate="form_name">الاسم الكامل</label>
+                            <input type="text" id="name" class="form-control" placeholder="أدخل اسمك هنا" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-translate="form_email">البريد الإلكتروني أو الهاتف</label>
+                            <input type="text" id="email" class="form-control" placeholder="name@example.com أو رقم الهاتف" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-translate="form_message">الرسالة</label>
+                            <textarea id="message" class="form-control" placeholder="اكتب تفاصيل مشروعك أو استفسارك هنا..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;" data-translate="form_submit">إرسال الرسالة</button>
+                        <div id="formMessage" class="form-message" data-translate="form_success">شكراً لك! تم إرسال رسالتك بنجاح وسنتواصل معك قريباً.</div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================
+       10. FOOTER
+       ========================================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--accent-gold)"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        Abeer<span>Younes</span>
+                    </a>
+                    <p data-translate="footer_desc">useful url</p>
+                </div>
+                <div class="footer-links">
+                    <h4 data-translate="footer_links_title">روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#about" data-translate="nav_about">من نحن</a></li>
+                        <li><a href="#services" data-translate="nav_services">الخدمات</a></li>
+                        <li><a href="#portfolio" data-translate="nav_portfolio">أعمالنا</a></li>
+                        <li><a href="#contact" data-translate="nav_contact">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-translate="footer_services_title">خدمات رئيسية</h4>
+                    <ul>
+                        <li><a href="#services" data-translate="serv1_title">تصميم صفحات الويب</a></li>
+                        <li><a href="#services" data-translate="serv2_title">برمجة سكريبتات الأتمتة</a></li>
+                        <li><a href="#services" data-translate="serv3_title">تحسين وتحليل البيانات</a></li>
+                        <li><a href="#services" data-translate="serv4_title">استشارات الأمان الرقمي</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Abeer Younes. <span data-translate="footer_rights">جميع الحقوق محفوظة.</span></p>
+                <div class="social-icons">
+                    <a href="#" aria-label="LinkedIn">&#128279;</a>
+                    <a href="#" aria-label="GitHub">&#128187;</a>
+                    <a href="#" aria-label="Twitter">&#128373;</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTopBtn" aria-label="العودة لأعلى">&#8593;</button>
+
+    <!-- ==========================================
+       JAVASCRIPT CODE
+       ========================================== -->
+    <script>
+        /* --- Multilingual Dictionary (AR / EN) --- */
+        const translations = {
+            ar: {
+                nav_about: "من نحن",
+                nav_services: "الخدمات",
+                nav_why: "لماذا تختارنا",
+                nav_portfolio: "أعمالنا",
+                nav_testimonials: "آراء العملاء",
+                nav_faq: "الأسئلة الشائعة",
+                nav_contact: "تواصل معنا",
+                btn_start: "ابدأ الآن",
+                hero_tag: "أنظمة أتمتة وحلول ذكية",
+                hero_title: "ارتقِ بعملك مع أحدث <span>أنظمة الأتمتة</span> والويب",
+                hero_desc: "useful url",
+                hero_btn1: "ابدأ مشروعك",
+                hero_btn2: "استكشف الخدمات",
+                about_tag: "من نحن",
+                about_title: "نحول الأفكار المعقدة إلى أنظمة رقمية سلسة وفعالة",
+                about_desc1: "نحن نقدم حلول أتمتة متطورة وتطوير ويب احترافي مصمم خصيصاً لمساعدة الشركات والأفراد على توفير الوقت وزيادة الإنتاجية عبر تذليل العقبات التقنية.",
+                about_desc2: "نسعى دائماً لتقديم جودة استثنائية تجمع بين جمال التصميم وسرعة الأداء لتلبية تطلعاتك وتحقيق أهدافك الرقمية.",
+                about_btn: "تواصل معنا اليوم",
+                stat_1: "مشروع ناجح",
+                stat_2: "رضا العملاء %",
+                stat_3: "سنوات خبرة",
+                stat_4: "دعم فني ساعة",
+                services_tag: "خدماتنا المتميزة",
+                services_title: "ماذا نقدم لك؟",
+                services_desc: "حلول متكاملة مصممة خصيصاً لرفع كفاءة عملك الرقمي",
+                serv1_title: "تصميم صفحات الويب",
+                serv1_desc: "تطوير صفحات هبوط سريعة، متجاوبة، وعالية التحويل تعكس هوية مشروعك بكل احترافية.",
+                serv2_title: "برمجة سكريبتات الأتمتة",
+                serv2_desc: "ربط التطبيقات والأنظمة ببعضها البعض لإنشاء سير عمل آلي يقلل الجهد البشري ويضاعف الإنتاجية.",
+                serv3_title: "تحسين وتحليل البيانات",
+                serv3_desc: "تنظيم وتحليل البيانات وهيكلتها بطرق ذكية تتيح لك اتخاذ قرارات دقيقة ومبنية على أرقام حقيقية.",
+                serv4_title: "استشارات الأمان الرقمي",
+                serv4_desc: "تقييم البنية التحتية وتطبيق معايير الحماية لضمان أمان بياناتك وخدماتك الرقمية على الإنترنت.",
+                why_tag: "لماذا تختارنا",
+                why_title: "المميزات التي تجعلنا الخيار الأفضل",
+                why_desc: "نلتزم بمعايير الجودة والاحترافية لضمان تفوقك المستمر",
+                feat1_title: "سرعة فائقة وأداء عالي",
+                feat1_desc: "نستخدم تقنيات حديثة خفيفة الوزن تضمن تحميل المواقع والأنظمة في أجزاء من الثانية.",
+                feat2_title: "حلول مخصصة تناسب احتياجك",
+                feat2_desc: "لا توجد حلول معلبة؛ نصمم كل نظام ليناسب متطلبات عملك بدقة متناهية.",
+                feat3_title: "دعم فني مستمر",
+                feat3_desc: "فريق دعم متواجد دائماً لمساعدتك وضمان استمرارية عمل أنظمتك بلا توقف.",
+                feat4_title: "أسعار تنافسية وقيمة عالية",
+                feat4_desc: "نقدم خدمات احترافية بأسعار مدروسة تضمن لك أعلى عائد على الاستثمار.",
+                portfolio_tag: "معرض الأعمال",
+                portfolio_title: "أحدث مشاريعنا المنجزة",
+                portfolio_desc: "نماذج حية من الحلول الرقمية وصفحات الويب التي طورناها",
+                port1_tag: "أتمتة العمليات",
+                port1_title: "نظام أتمتة المبيعات والطلبات",
+                port1_desc: "ربط منصات التجارة الإلكترونية بنظام داخلي لتحديث المخزون وإرسال الفواتير تلقائياً.",
+                port_link: "اكتشف التفاصيل &larr;",
+                port2_tag: "تطوير الويب",
+                port2_title: "منصة عرض أعمال رقمية",
+                port2_desc: "صفحة هبوط تفاعلية ومتجاوبة بالكامل تعرض الخدمات والمنتجات مع نظام تحميل مباشر.",
+                port3_tag: "تحليل البيانات",
+                port3_title: "لوحة تحكم ذكية للشركات",
+                port3_desc: "تحويل البيانات الخام إلى رسوم بيانية وتنبيهات فورية تساعد في اتخاذ القرارات الإدارية.",
+                test_tag: "آراء العملاء",
+                test_title: "ماذا يقول عملاؤنا عنا؟",
+                test_desc: "شهادات حقيقية تعكس مستوى الجودة والاحترافية التي نقدمها",
+                test1_text: "\"خدمة احترافية جداً واهتمام بأدق التفاصيل. أنظمة الأتمتة التي تم بناؤها وفرت علينا ساعات طويلة من العمل اليدوي.\"",
+                test1_name: "أحمد المالك",
+                test1_role: "مدير شركة تجارية",
+                test2_text: "\"التصميم كان رائعاً وعصرياً تماماً كما طلبت. السرعة والاحترافية في التعامل تدعو للإعجاب المستمر.\"",
+                test2_name: "سارة الخطيب",
+                test2_role: "مصممة ومستقلة",
+                test3_text: "\"أنصح بشدة بالتعامل مع Abeer Younes. الدعم الفني استثنائي والحلول المقدمة مبتكرة وعملية للغاية.\"",
+                test3_name: "خالد العمري",
+                test3_role: "رائد أعمال",
+                faq_tag: "الأسئلة الشائعة",
+                faq_title: "إجابات على أبرز استفساراتك",
+                faq_desc: "كل ما تحتاج لمعرفته حول خدماتنا وآلية العمل",
+                faq1_q: "كم تستغرق عملية إنجاز المشروع؟",
+                faq1_a: "تختلف المدة حسب حجم المشروع وتعقيده، ولكن عادة ما تستغرق صفحات الهبوط من 3 إلى 5 أيام، بينما مشاريع الأتمتة المتقدمة تتطلب من أسبوع إلى أسبوعين.",
+                faq2_q: "كيف يتم التواصل ومتابعة العمل؟",
+                faq2_a: "نعتمد قنوات اتصال مرنة تشمل البريد الإلكتروني (abiryns26@gmail.com)، الهاتف، أو محادثات واتساب لضمان التنسيق المستمر وإطلاعك على خطوات العمل أولاً بأول.",
+                faq3_q: "هل تقدمون دعماً فنياً بعد تسليم المشروع؟",
+                faq3_a: "نعم، نقدم فترة دعم فني مجاني بعد التسليم لضمان عمل كافة الأنظمة والصفحات بأعلى كفاءة، مع توفر باقات صيانة ودعم مستمر عند الطلب.",
+                faq4_q: "ما هي تكلفة الخدمات؟",
+                faq4_a: "الأسعار مرنة وتعتمد على متطلباتك الخاصة واحتياجات مشروعك. يمكنك التواصل معنا عبر نموذج الاتصال أو واتساب للحصول على عرض سعر مخصص ودقيق.",
+                contact_tag: "تواصل معنا",
+                contact_title: "دعنا نناقش مشروعك القادم",
+                contact_desc: "نحن هنا للإجابة على كافة استفساراتك وتحويل أفكارك إلى واقع رقمي ملموس.",
+                contact_email_label: "البريد الإلكتروني",
+                contact_phone_label: "رقم الهاتف",
+                whatsapp_btn: "تواصل عبر واتساب",
+                form_name: "الاسم الكامل",
+                form_email: "البريد الإلكتروني أو الهاتف",
+                form_message: "الرسالة",
+                form_submit: "إرسال الرسالة",
+                form_success: "شكراً لك! تم إرسال رسالتك بنجاح وسنتواصل معك قريباً.",
+                footer_desc: "useful url",
+                footer_links_title: "روابط سريعة",
+                footer_services_title: "خدمات رئيسية",
+                footer_rights: "جميع الحقوق محفوظة."
+            },
+            en: {
+                nav_about: "About Us",
+                nav_services: "Services",
+                nav_why: "Why Us",
+                nav_portfolio: "Portfolio",
+                nav_testimonials: "Testimonials",
+                nav_faq: "FAQ",
+                nav_contact: "Contact",
+                btn_start: "Get Started",
+                hero_tag: "Automations & Smart Solutions",
+                hero_title: "Scale Your Business With Advanced <span>Automations</span>",
+                hero_desc: "useful url",
+                hero_btn1: "Start Project",
+                hero_btn2: "Explore Services",
+                about_tag: "About Us",
+                about_title: "Transforming Complex Ideas Into Seamless Digital Systems",
+                about_desc1: "We provide advanced automation solutions and professional web development tailored to help businesses and individuals save time and increase productivity.",
+                about_desc2: "We strive to deliver exceptional quality combining stunning design with high-performance speed to achieve your digital goals.",
+                about_btn: "Contact Us Today",
+                stat_1: "Successful Projects",
+                stat_2: "Client Satisfaction %",
+                stat_3: "Years Experience",
+                stat_4: "Hours Support",
+                services_tag: "Our Services",
+                services_title: "What We Offer",
+                services_desc: "Integrated solutions specifically designed to elevate your digital workflow",
+                serv1_title: "Web Page Design",
+                serv1_desc: "Developing fast, responsive, and high-conversion landing pages that reflect your brand professionally.",
+                serv2_title: "Automation Scripting",
+                serv2_desc: "Connecting apps and systems to build automated workflows that reduce manual effort and multiply productivity.",
+                serv3_title: "Data Optimization & Analysis",
+                serv3_desc: "Organizing and structuring data smartly to help you make precise decisions based on real numbers.",
+                serv4_title: "Digital Security Consulting",
+                serv4_desc: "Evaluating infrastructure and applying protection standards to ensure the safety of your online data.",
+                why_tag: "Why Choose Us",
+                why_title: "Features That Make Us The Best Choice",
+                why_desc: "We adhere to quality and professionalism standards to ensure your continuous success",
+                feat1_title: "Lightning Speed & High Performance",
+                feat1_desc: "We use lightweight, modern technologies ensuring websites and systems load in milliseconds.",
+                feat2_title: "Customized Solutions",
+                feat2_desc: "No cookie-cutter templates; we design every system to match your exact business requirements.",
+                feat3_title: "Continuous Support",
+                feat3_desc: "A dedicated support team is always available to help and ensure your systems run smoothly.",
+                feat4_title: "Competitive Pricing & High Value",
+                feat4_desc: "We offer professional services at well-thought-out prices guaranteeing the highest ROI.",
+                portfolio_tag: "Portfolio",
+                portfolio_title: "Our Latest Completed Projects",
+                portfolio_desc: "Live samples of digital solutions and web pages we built",
+                port1_tag: "Process Automation",
+                port1_title: "Sales & Order Automation System",
+                port1_desc: "Connecting e-commerce platforms with an internal system to update inventory and send invoices automatically.",
+                port_link: "Discover Details &larr;",
+                port2_tag: "Web Development",
+                port2_title: "Digital Portfolio Platform",
+                port2_desc: "An interactive, fully responsive landing page showcasing services and products with direct download features.",
+                port3_tag: "Data Analysis",
+                port3_title: "Smart Business Dashboard",
+                port3_desc: "Converting raw data into charts and instant alerts supporting administrative decision-making.",
+                test_tag: "Testimonials",
+                test_title: "What Our Clients Say",
+                test_desc: "Real testimonials reflecting our quality and professionalism",
+                test1_text: "\"Very professional service and attention to minute details. The automation systems built saved us countless hours of manual work.\"",
+                test1_name: "Ahmed Al-Malik",
+                test1_role: "Commercial Manager",
+                test2_text: "\"The design was stunning and modern, exactly as requested. Speed and professionalism in handling are truly impressive.\"",
+                test2_name: "Sara Al-Khatib",
+                test2_role: "Freelance Designer",
+                test3_text: "\"I highly recommend working with Abeer Younes. Exceptional support and innovative, highly practical solutions.\"",
+                test3_name: "Khaled Al-Omari",
+                test3_role: "Entrepreneur",
+                faq_tag: "FAQ",
+                faq_title: "Answers to Your Key Inquiries",
+                faq_desc: "Everything you need to know about our services and workflow",
+                faq1_q: "How long does a project take?",
+                faq1_a: "Duration varies by project scope, but landing pages typically take 3 to 5 days, while advanced automation projects take 1 to 2 weeks.",
+                faq2_q: "How do we communicate and track work?",
+                faq2_a: "We rely on flexible channels including email (abiryns26@gmail.com), phone, or WhatsApp to ensure continuous alignment and updates.",
+                faq3_q: "Do you offer post-delivery support?",
+                faq3_a: "Yes, we provide free post-delivery support to ensure all systems operate at peak efficiency, with ongoing maintenance packages available upon request.",
+                faq4_q: "What is the cost of services?",
+                faq4_a: "Pricing is flexible based on your custom requirements. Contact us via the contact form or WhatsApp for a tailored quote.",
+                contact_tag: "Contact Us",
+                contact_title: "Let's Discuss Your Next Project",
+                contact_desc: "We are here to answer all your inquiries and turn your ideas into concrete digital reality.",
+                contact_email_label: "Email Address",
+                contact_phone_label: "Phone Number",
+                whatsapp_btn: "Chat via WhatsApp",
+                form_name: "Full Name",
+                form_email: "Email or Phone",
+                form_message: "Message",
+                form_submit: "Send Message",
+                form_success: "Thank you! Your message was sent successfully and we will contact you soon.",
+                footer_desc: "useful url",
+                footer_links_title: "Quick Links",
+                footer_services_title: "Core Services",
+                footer_rights: "All rights reserved."
+            }
+        };
+
+        let currentLang = 'ar';
+
+        /* --- DOM Elements --- */
+        const htmlElement = document.documentElement;
+        const themeToggle = document.getElementById('theme-toggle');
+        const langToggle = document.getElementById('lang-toggle');
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        const currentYearSpan = document.getElementById('current-year');
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        // Set Current Year
+        currentYearSpan.textContent = new Date().getFullYear();
+
+        /* --- Theme Toggle (Dark / Light) --- */
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'light') {
+            htmlElement.classList.remove('dark');
+        } else {
+            htmlElement.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            const isDark = htmlElement.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        /* --- Language Toggle (AR / EN) --- */
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            langToggle.textContent = currentLang === 'ar' ? 'AR' : 'EN';
+            htmlElement.setAttribute('lang', currentLang);
+            htmlElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+            
+            // Update all text elements with data-translate
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+        });
+
+        /* --- Mobile Navigation Hamburger --- */
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        /* --- Scroll to Top Button & Sticky Header --- */
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        /* --- FAQ Accordion --- */
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        /* --- Intersection Observer for Scroll Animations & Counter --- */
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    // Trigger Counters if inside stats
+                    if (entry.target.querySelector('.stat-number') || entry.target.classList.contains('stats-grid')) {
+                        startCounters();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        
+        let countersStarted = false;
+        function startCounters() {
+            if (countersStarted) return;
+            countersStarted = true;
+            
+            document.querySelectorAll('.stat-number').forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const speed = target / 50;
+                
+                const updateCount = () => {
+                    count += speed;
+                    if (count < target) {
+                        counter.textContent = Math.ceil(count);
+                        setTimeout(updateCount, 30);
+                    } else {
+                        counter.textContent = target + (target === 98 ? '%' : '+');
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        /* --- Contact Form Validation & Success --- */
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (name && email && message) {
+                formMessage.style.display = 'block';
+                formMessage.className = 'form-message success';
+                contactForm.reset();
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
